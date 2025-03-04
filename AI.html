@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grossmont College AI Program CTE/WD CSIS Department</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+            display: none; /* Hidden until password is entered */
+        }
+        h1 {
+            color: #333;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+        .cell {
+            padding: 20px;
+            background-color: #0074D9;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cell:hover {
+            background-color: #0056a3;
+        }
+        .revealed-question {
+            background-color: #FFD700;
+            color: black;
+            font-size: 18px;
+        }
+        .revealed-answer {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+        }
+        .category {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #222;
+            color: white;
+            padding: 10px;
+            text-transform: uppercase;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function checkPassword() {
+            var password = prompt("Enter the password to access the game:");
+            if (password === "CTE2025") {
+                document.body.style.display = "block"; 
+            } else {
+                alert("Incorrect password. Try again.");
+                checkPassword();
+            }
+        }
+
+        function reveal(cell, question, answer) {
+            if (!cell.classList.contains("revealed-question")) {
+                cell.innerHTML = question;
+                cell.classList.add("revealed-question");
+            } else {
+                cell.innerHTML = answer;
+                cell.classList.add("revealed-answer");
+            }
+        }
+
+        window.onload = checkPassword;
+    </script>
+</head>
+<body>
+    <h1>Grossmont College AI Program CTE/WD CSIS Department</h1>
+    <p>Click on the dollar amounts to reveal the questions and then the answers!</p>
+
+    <div class="board">
+        <!-- Categories -->
+        <div class="category">Past</div>
+        <div class="category">Present</div>
+        <div class="category">Future</div>
+
+        <!-- Questions and Answers -->
+        <!-- $100 Row -->
+        <div class="cell" onclick="reveal(this, 'What market data was used to justify AI programs in 2023?', 'What is labor market information?')">$100</div>
+        <div class="cell" onclick="reveal(this, 'What is currently being integrated into CS classes at Grossmont?', 'What is Nvidia AI training materials?')">$100</div>
+        <div class="cell" onclick="reveal(this, 'What is Grossmont planning for Fall 2025?', 'What is launching AI degree and certificate programs?')">$100</div>
+
+        <!-- $200 Row -->
+        <div class="cell" onclick="reveal(this, 'Who presented AI programs for approval in November 2024?', 'Who is the Dean?')">$200</div>
+        <div class="cell" onclick="reveal(this, 'Which programming languages are being infused with AI content?', 'What are Java and Python?')">$200</div>
+        <div class="cell" onclick="reveal(this, 'Which industries are Grossmont students being prepared for with AI training?', 'What are IT, cybersecurity, and data science?')">$200</div>
+
+        <!-- $300 Row -->
+        <div class="cell" onclick="reveal(this, 'What college meeting introduced the AI program to faculty?', 'What is a Senate meeting?')">$300</div>
+        <div class="cell" onclick="reveal(this, 'What new AI credential is being developed at Grossmont?', 'What is an AI Certificate of Achievement, 2-Year Degree, and Non-credit Certificate?')">$300</div>
+        <div class="cell" onclick="reveal(this, 'What industry certifications will be available to students?', 'What are Nvidia AI certifications?')">$300</div>
+
+        <!-- $400 Row (Updated Future Category Question) -->
+        <div class="cell" onclick="reveal(this, 'What meeting in October 2024 included AI industry leaders?', 'What is an AI Advisory Board meeting?')">$400</div>
+        <div class="cell" onclick="reveal(this, 'Which departments are overseeing AI curriculum changes?', 'What are Computer Science and Information Systems?')">$400</div>
+        <div class="cell" onclick="reveal(this, 'What is the main difference between Grossmont’s credit and non-credit AI programs?', 'What is non-credit focuses on AI use, while credit focuses on AI design and development, including machine learning and neural networks?')">$400</div>
+
+        <!-- $500 Row -->
+        <div class="cell" onclick="reveal(this, 'Which company’s training did faculty attend in January 2025?', 'What is Nvidia?')">$500</div>
+        <div class="cell" onclick="reveal(this, 'Which three fields will see the most impact from Grossmont AI programs?', 'What are AI, cybersecurity, and cloud computing?')">$500</div>
+        <div class="cell" onclick="reveal(this, 'How will students access AI computing without expensive hardware?', 'What is Nvidia’s cloud-based GPU computing?')">$500</div>
+    </div>
+</body>
+</html>
